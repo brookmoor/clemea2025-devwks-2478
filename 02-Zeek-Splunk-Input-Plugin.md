@@ -148,4 +148,4 @@ You should now be able to create a new Zeek input
 
 ![CTB Manager Add Zeek Input](images/2.6-ctb-manager-new-zeek.jpeg)
 
-## [Splunk HEC Output Plugin](03-Zeek-Splunk-Output-Plugin.md)
+## [Splunk HEC Output Plugin](03-Zeek-Splunk-HEC-Output-Plugin.md)
