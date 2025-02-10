@@ -6,8 +6,6 @@ Before we get started, every workstation has the following information:
 
 * CTB Manager IP (on AWS)
 * CTB Manager login credentials (username/password)
-* CTB Broker Node ssh instructions
-* Splunk HEC Token value
 
 Let us verify a few things first
 
@@ -23,15 +21,15 @@ Let us verify a few things first
 
 ![CTB Manager Add Input](images/2.3-ctb-manager-no-zeek.jpeg)
 
-4.  Click `Add Destination` and ensure that under the `Select Destination type`, you do see `HEC Destination` (typically the last option).
+4. Click `Add Destination` and ensure that under the `Select Destination type`, you do see `HEC Destination` (typically the last option).
 
 ![CTB Manager Add Destination](images/2.4-ctb-manager-hec.jpeg)
 
-5. Open a Terminal window on your workstation and do the following (make a note of your Manager IP)
+5. We are going to run all of our install commands on the Telemetry Broker Node. To get to the Broker Node, we have to ssh to the CTB Manager on AWS first and then ssh to the Broker node. So, open a Terminal window on your workstation and do the following (make a note of your Workstation's Manager IP). In the example below, the Broker node hostname is `tb-213-master` - each workstation will have a different hostname with the workstation id as the suffix (e.g., tbn-213-5 for workstation 5)
 
 ```
-devnet@devnet-events: ~$ cd Desktop/DEVWKS-2478/scripts
-devnet@devnet-events: ~/Desktop/DEVWKS-24778/scripts$ ssh -i ./cleu25-ctb.pem admin@<managerIP>
+devnet@devnet-events: ~$ cd Desktop/DEVWKS-2478
+devnet@devnet-events: ~/Desktop/DEVWKS-2478$ ssh -i ./ssh/cleu25-ctb.pem admin@<managerIP>
 Linux ip-xxx-xx-x-xx 6.1.0-29-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.123-1 (2025-01-02) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -116,7 +114,7 @@ admin@tb-213-master:~/zeek/install-213$ cat zeek.json
     "multi_node": false
 }
 ```
-As you can see, there are just two fields that are created, `name` and `interface` and that is all that is needed for this Zeek plugin.
+As you can see, there are just two key fields that used to configure the Zeek input: `name` and `interface`.
 
 Next, the install script creates a `zeek` plugin directory for all zeek related files, followed by some cron jobs that monitor for creation/deletion of Zeek and statistics reporting. And finally, the Zeek application itself is loaded via a container.
 

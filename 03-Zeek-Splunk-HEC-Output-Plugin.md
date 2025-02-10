@@ -1,8 +1,6 @@
 ## Splunk HEC Output Plugin
 
-The Splunk HEC output plugin has already been installed on the Manager.
-
-Let's install it on the Broker Node.
+The Splunk HEC output plugin has already been installed on the Manager. Remember that as part of the inital checks, we confirmed that the HEC Destination was present on the Manager as an Output type. Let's install the plugin on the Broker Node as well.
 
 ```
 admin@tb-213-master:~$ cd hec/install-213/
@@ -11,7 +9,7 @@ check_hec_output_type  docker-compose.yml.patch  h.d  install_hec_plugin.sh  tel
 admin@tb-213-master:~/hec/install-213$ 
 ```
 
-You can examine the file `install_hec_plugin.sh`. The install script creates a `hec` plugin directory for all hec related files, followed by some cron jobs that monitor for creation/deletion of a Splunk HEC destination and statistics reporting. In the case of HEC, we are using a lot of the functionality that is present in `telegraf` like was mentioned before. You can examine the source code here to get a better understanding. The file `h.d/start_hec.sh` has details about the telegraf plugins and configuration.
+You can examine the file `install_hec_plugin.sh`. The install script creates a `hec` plugin directory for all hec related files, followed by some cron jobs that monitor for creation/deletion of a Splunk HEC destination and statistics reporting. In the case of HEC, we are using a lot of the functionality that is present in `telegraf` like was mentioned before. You can examine the source code here to get a better understanding. The file `h.d/start_hec.sh` has details about the telegraf plugins and configuration needed to enable sending event data into Splunk.
 
 Now, we can just go ahead and run the install script which will do all of the above.
 ```

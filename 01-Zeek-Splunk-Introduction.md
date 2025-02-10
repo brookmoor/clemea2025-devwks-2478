@@ -34,7 +34,7 @@ The Cisco Telemetry Broker (CTB) simplifies the ingest of raw traffic, its conve
 
 ![Zeek to Splunk - CTB](images/Zeek-Splunk-CTB.jpg)
 
-One of the key advantages of CTB is that this capability can be developed by anyone who is familiar with the CTB platform architecture. For the rest of this Workshop, we will delve into how one can develop capabilities like this using the CTB platform and we will showcase this using 
+One of the key advantages of CTB is that this capability can be developed by anyone who is familiar with the CTB platform architecture. For the rest of this Workshop, we will delve into how one can develop capabilities like this using the CTB platform and we will showcase this in this Devnet workshop.
 
 ### CTB Plugins
 
@@ -46,9 +46,11 @@ There are two main types of Plugins present in CTB today, Input Plugins and Outp
 
 In this Workshop, the Zeek plugin is an Input plugin and the Splunk HEC plugin is an Output Plugin. Both Plugins operate in Push mode.
 
+* There is a a third type of plugin called "Processor plugins" which is present in the underlying CTB telemetry engines, but is not yet exposed to the UI. This functionality is super powerful and allows for dynamic transformations of telemetry and is expected some time later this year.
+
 ### CTB Input Plugin Design
 
-Like mentioned before, Input plugins are designed to process telemetry from sources and report statistics on their processing. The CTB architecture allows for creation of custom Input plugins using the `Generic Input Framework`. There are a number of input plugins that present internally within CTB as part of the telegraf application, but users can also create custom plugins if any special processing of telemetry is needed. Telegraf doesn't have an inbuilt Zeek generaotor plugin, so we built one ourselves.
+Like mentioned before, Input plugins are designed to process telemetry from sources and report statistics on their processing. The CTB architecture allows for creation of custom Input plugins using the `Generic Input Framework`. There are a number of input plugins that are present internally within CTB as part of the telegraf application , but users can also create custom plugins if any special processing of telemetry is needed. Telegraf currently doesn't have an inbuilt Zeek generaotor plugin, so we built one ourselves.
 
 The process for creating a new Input plugin in CTB is as follows:
 1. Create a new Input type that defines the plugin's capabilities using the CTB Manager API
