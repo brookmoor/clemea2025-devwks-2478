@@ -11,19 +11,19 @@ Let us verify a few things first
 
 1. Ensure that you can login to your CTB Manager using the credentials provided using a Browser. If you successfully login, you should see the following:
 
-![CTB Manager Login](images/2.1-ctb-manager-login.jpeg)
+![CTB Manager Login](images/2.1-ctb-manager-login.png)
 
 2. Go to the `Data Flow` tab and ensure that there are no telemetry flows configured. 
 
-![CTB Manager Dataflow](images/2.2-ctb-manager-dataflow.jpeg)
+![CTB Manager Dataflow](images/2.2-ctb-manager-dataflow.png)
 
 3. Click `Add Input` and ensure that under `Select Input type`, there is no `Zeek input` type (typically the last option).
 
-![CTB Manager Add Input](images/2.3-ctb-manager-no-zeek.jpeg)
+![CTB Manager Add Input](images/2.3-ctb-manager-no-zeek.png)
 
 4. Click `Add Destination` and ensure that under the `Select Destination type`, you do see `HEC Destination` (typically the last option).
 
-![CTB Manager Add Destination](images/2.4-ctb-manager-hec.jpeg)
+![CTB Manager Add Destination](images/2.4-ctb-manager-hec.png)
 
 5. We are going to run all of our install commands on the Telemetry Broker Node. To get to the Broker Node, we have to ssh to the CTB Manager on AWS first and then ssh to the Broker node. So, open a Terminal window on your workstation and do the following (make a note of your Workstation's Manager IP). In the example below, the Broker node hostname is `tb-213-master` - each workstation will have a different hostname with the workstation id as the suffix (e.g., tbn-213-5 for workstation 5)
 
@@ -144,6 +144,6 @@ You should now be able to create a new Zeek input
 
 6. Go back to your browser window and confirm that the new Input is now available as an option.
 
-![CTB Manager Add Zeek Input](images/2.6-ctb-manager-new-zeek.jpeg)
+![CTB Manager Add Zeek Input](images/2.6-ctb-manager-new-zeek.png)
 
 ## [Splunk HEC Output Plugin](03-Zeek-Splunk-HEC-Output-Plugin.md)

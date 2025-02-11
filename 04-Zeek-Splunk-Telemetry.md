@@ -6,7 +6,7 @@ All the operations here are done via the UI. You can also do it completely via A
 
 1. Create an instance of a Zeek input
 
-![CTB Manager Add Zeek Input](images/4.1-new-zeek-input.jpeg)
+![CTB Manager Add Zeek Input](images/4.1-new-zeek-input.png)
 
 Here are the field inputs:
 * `name`: anything
@@ -16,16 +16,36 @@ The `ens160` is the CTB Broker node admin interface and will monitor all traffic
 
 2. Create an instance of a Splunk HEC output
 
-![CTB Manager Add HEC Output](images/4.2-new-HEC-output.jpeg)
+![CTB Manager Add HEC Output](images/4.2-new-HEC-output.png)
 
 Here are the field inputs:
 * `Destination Name`: anything
 * `Splunk HEC Token`: <splunk-token>
 * `HEC Endpoint URL`: http://<managerIP>:8088/services/collector/event
 
+The Splunk token should be present in the directory when you first ssh into the Manager.
+
+```
+ajit@mac % ssh -i ~/.ssh/cleu25-ctb.pem admin@18.119.95.43
+Linux ip-172-31-4-74 6.1.0-29-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.123-1 (2025-01-02) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon Feb 10 18:02:44 2025 from 85.146.220.36
+admin@ip-172-31-4-74:~$ cat splunk_token 
+	token=3f7e8edd-0cad-4a62-8c41-3719ae3b7901
+admin@ip-172-31-4-74:~$ 
+```
+
 3. Connect the Zeek input to the Splunk HEC output
 
 Simply drag and connect the input to the output.
+
+![CTB Manager Connect Zeek to HEC](images/4.3-zeek-to-hec.png)
 
 Wait a few minutes and you will see the input and output turn green and data should start flowing
 
