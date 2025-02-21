@@ -29,7 +29,7 @@ Let us verify a few things first
 
 ```
 devnet@devnet-events: ~$ cd Desktop/DEVWKS-2478
-devnet@devnet-events: ~/Desktop/DEVWKS-2478$ ssh -i ./ssh/cleu25-ctb.pem admin@<managerIP>
+devnet@devnet-events: ~/Desktop/DEVWKS-2478$ ssh -i ./.ssh/cleu25-ctb.pem admin@<managerIP>
 Linux ip-xxx-xx-x-xx 6.1.0-29-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.123-1 (2025-01-02) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
